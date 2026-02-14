@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day Baby ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:url("bg.jpg") no-repeat center center/cover;
+overflow:hidden;
+}
+
+/* Dark overlay */
+body::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:0;
+}
+
+/* Card */
+.card{
+position:relative;
+z-index:1;
+width:90%;
+max-width:420px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+padding:25px;
+border-radius:25px;
+text-align:center;
+color:white;
+box-shadow:0 0 30px rgba(255,255,255,0.4);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+h1{
+font-size:22px;
+margin-bottom:10px;
+}
+
+button{
+padding:10px 22px;
+margin:8px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-size:14px;
+transition:0.3s;
+}
+
+.yes{background:#ff004c;color:white;}
+.no{background:white;color:#ff004c;position:relative;}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* LOVE SCREEN */
+#loveScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:none;
+flex-direction:column;
+align-items:center;
+overflow-y:auto;
+padding:30px 20px;
+color:white;
+animation:fadeIn 0.8s ease;
+z-index:5;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.letter{
+max-width:600px;
+line-height:1.6;
+text-align:center;
+margin-top:20px;
+}
+
+.backBtn{
+margin-top:25px;
+background:#ff004c;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<img src="photo.png">
+
+<h1>Happy Valentine's Day Baby ❤️</h1>
+
+<p>Baby, will you be mine forever? 💖</p>
+
+<button class="yes" onclick="sayYes()">Yes 💕</button>
+<button class="no" onmouseover="moveNo()">No 😜</button>
+
+</div>
+
+<!-- LOVE LETTER SCREEN -->
+<div id="loveScreen">
+
+<h2>💌 A Letter For You Baby 💌</h2>
+
+<div class="letter">
+
+<p>
+Baby, tu majhya life madhla saglyat special part aahes.  
+Tujhyamule mi complete ahe ❤️  
+Aaj Valentine’s Day la mala fakta he sangaych aahe —
+I love you more than anything 💖
+</p>
+
+<br>
+
+<p>
+💞 Aaho..!! 💞 <br>
+तुझ्या हसण्यात माझं जग आहे,  
+तुझ्या डोळ्यांत माझं स्वप्न आहे.  
+तू आहेस म्हणून माझं सगळं काही आहे ❤️
+</p>
+
+<br>
+
+<p>
+💖 Baby 💖 <br>
+तेरे बिना अधूरी हूँ मैं,  
+तू साथ हो तो पूरी हूँ मैं.  
+मेरी हर खुशी की वजह तुम हो Baby 💕
+</p>
+
+<br>
+
+<p>
+💘 Pilla 💘 <br>
+Every heartbeat whispers your name,  
+Every dream carries your smile.  
+Forever with you — that’s my only wish ❤️
+</p>
+
+<br>
+
+<p>
+💝 Babduuu 💝 <br>
+तू आहेस म्हणून मी मजबूत आहे,  
+तुझ्या प्रेमामुळेच मी खूश आहे.  
+तू माझा Forever आहेस Baby 💍
+</p>
+
+<br>
+
+<p>
+Baby, I promise to love you,  
+care for you,  
+fight with you,  
+and still choose you every single day ❤️
+</p>
+
+</div>
+
+<button class="backBtn" onclick="goBack()">Go Back To My Baby 💕</button>
+
+</div>
+
+<!-- MUSIC (Loop Enabled) -->
+<audio id="loveMusic" src="music.mp3" loop></audio>
+
+<script>
+
+/* YES CLICK */
+function sayYes(){
+document.getElementById("loveScreen").style.display="flex";
+
+let music = document.getElementById("loveMusic");
+music.play().catch(function(){
+console.log("User interaction required for autoplay.");
+});
+}
+
+/* BACK BUTTON */
+function goBack(){
+document.getElementById("loveScreen").style.display="none";
+
+let music = document.getElementById("loveMusic");
+music.pause();
+music.currentTime = 0;
+}
+
+/* NO BUTTON RUN */
+function moveNo(){
+var btn=document.querySelector(".no");
+btn.style.position="absolute";
+btn.style.top=Math.random()*300+"px";
+btn.style.left=Math.random()*300+"px";
+}
+
+</script>
+
+</body>
+</html>
